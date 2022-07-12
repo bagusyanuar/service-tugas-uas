@@ -96,3 +96,16 @@ export const detail = async (request, response) => {
         data: data
     })
 }
+
+export const hapus = async (request, response) => {
+    let id = request.params.id;
+    await Berita.destroy({
+        where: {
+            id,
+        },
+    });
+    return response.status(200).json({
+        code: 200,
+        data: null
+    })
+}
